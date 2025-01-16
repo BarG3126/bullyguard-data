@@ -1,19 +1,22 @@
 [tool.poetry]
-name = "prod_project"
+name = "bullyguard"
 version = "0.1.0"
 description = ""
 authors = ["BarG3126 <bar3126@gmail.com>"]
 readme = "README.md"
 packages = [
-    { include = "prod_project" },
+    { include = "bullyguard" },
 ]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.11"
 pydantic = "~=2.10.5"
 hydra-core = "~=1.3.2"
+google-cloud-secret-manager = "~=2.22.0"
+dvc = {version = "3.59.0", extras = ["gdrive", "gs"]}
 
 [tool.poetry.group.dev.dependencies]
+jupyterlab = "4.3.4"
 pytest = "~7.4"
 black = "~23.7.0"
 isort = "~5.12"
@@ -37,7 +40,7 @@ ensure_newline_before_comments = true
 line_length = 120
 indent = 4
 lines_between_types = 1
-known_first_party = ["prod_project"]
+known_first_party = ["bullyguard"]
 default_section = "THIRDPARTY"
 sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
 
