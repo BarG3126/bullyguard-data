@@ -1,6 +1,3 @@
 [core]
     analytics = false
     autostage = true
-    remote = myremote
-['remote "myremote"']
-    url = gs://bullyguard/data/raw
