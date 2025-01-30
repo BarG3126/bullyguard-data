@@ -3,14 +3,15 @@ FROM python:3.10-slim
 ARG USER_ID
 ARG USER_NAME
 ENV HOME=/home/${USER_NAME} \
-    VIRTUAL_ENV=/home/${USER_NAME}/venv
+    VIRTUAL_ENV=/home/${USER_NAME}/venv \
+    PYTHONPATH=/app
 
 ENV \
     PYTHONUNBUFFERED=1 \
     DEBIAN_FRONTEND=noninteractive \
     TZ=Asia/Jerusalem \
-    PATH="usr/local/gcloud/google-cloud-sdk/bin:${VIRTUAL_ENV}/bin:${HOME}/.local/bin:${PATH}" \
-    PYTHONPATH="/app:${PYTHON_PATH}" \
+    PATH="/usr/local/gcloud/google-cloud-sdk/bin:${HOME}/.local/bin:${VIRTUAL_ENV}/bin:${PATH}" \
+    PYTHONPATH="/app:${PYTHONPATH}" \
     BUILD_POETRY_LOCK="${HOME}/poetry.lock.build"
 
 RUN apt-get update \
