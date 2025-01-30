@@ -50,5 +50,11 @@ USER ${USER_NAME}
 COPY . /app/
 CMD ["/startup-script.sh"]
 
+# Note: when build&run image for the first time, you should define ssh remore connection to github using:
+# 'git remote set-url origin git@github.com:BarG3126/bullyguard-data.git' using the ssh.pub file.
+# make sure you have defines the ssh located in: cat ~/.ssh/id_ed25519.pub inside github keys.
+# if there's no existing key - use : 'ssh-keygen -t ed25519 -C "bar3126@gmail.com"'
+
+
 RUN git config --global user.email "bar3126@gmail.com" \
     && git config --global user.name "BarG3126"
